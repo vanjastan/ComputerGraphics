@@ -1,0 +1,32 @@
+﻿<Window x:Class="AssimpSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SharpGL WPF Application" Height="350" Width="525" 
+        xmlns:sharpGL="clr-namespace:SharpGL.WPF;assembly=SharpGL.WPF" KeyDown="Window_KeyDown">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <DockPanel Margin="0,0,0.4,-0.2">
+            <ToolBarTray DockPanel.Dock="Bottom">
+                <ToolBar HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,-50,0" Width="518">
+
+                    <Label Content="Scale:" VerticalContentAlignment="Center"></Label>
+                    <TextBox Name ="scaling"  Height="25" TextWrapping="Wrap" BorderThickness="1" BorderBrush="Black" VerticalContentAlignment="Center" VerticalAlignment="Top" MinWidth="30" Margin="0,10,0,5" TextChanged = "scaling_TextChanged" PreviewTextInput="NumberValidationTextBox"/>
+
+                    <Label Content="Goal Distance:" VerticalContentAlignment="Center"></Label>
+                    <TextBox Name = "goal_distance"  Height="25" TextWrapping="Wrap" BorderThickness="1" BorderBrush="Black" VerticalContentAlignment="Center" VerticalAlignment="Top" MinWidth="30" Margin="0,10,10,5" TextChanged =  "goal_distance_TextChanged" PreviewTextInput="NumberValidationTextBox"/>
+
+                    <Label Content="Animation speed:" VerticalContentAlignment="Center"></Label>
+                    <TextBox Name = "animation_speed"  Height="25" TextWrapping="Wrap" BorderThickness="1" BorderBrush="Black" VerticalContentAlignment="Center" VerticalAlignment="Top" MinWidth="30" Margin="0,10,10,5" TextChanged =  "animation_speed_TextChanged" PreviewTextInput="NumberValidationTextBox"/>
+                </ToolBar>
+            </ToolBarTray>
+            <!-- The OpenGL control provides a OpenGL drawing surface. -->
+            <sharpGL:OpenGLControl 
+            Name="openGLControl" OpenGLDraw="openGLControl_OpenGLDraw" 
+            OpenGLInitialized="openGLControl_OpenGLInitialized" Resized="openGLControl_Resized"
+            DrawFPS="True" RenderContextType="FBO" FrameRate="10"/>
+        </DockPanel>
+    </Grid>
+</Window>
